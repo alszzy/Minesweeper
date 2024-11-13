@@ -1,0 +1,143 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+.header {
+    text-align: center;
+}
+
+.back-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+#root{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.message {
+    font-size: 1.5vmin;
+    position: absolute;
+    top: 10%;
+    padding: 0;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(var(--col), 2.5vmin);
+    grid-template-rows: repeat(var(--row), 2.5vmin);
+    position: absolute;
+    top:30%;
+
+    background: #C0C0C0;
+    padding: 12px;
+    border: 4px solid;
+    border-color: #ffffff #808080 #808080 #ffffff;
+    box-shadow: 
+        inset -4px -4px 0px 0px #dfdfdf,
+        inset 4px 4px 0px 0px #dfdfdf;
+    margin-bottom: 20px;
+}
+
+.reset-button {
+    width: 4em;
+    height: 4em;
+    top:20%;
+    position: absolute;
+    background-color: #777;
+    border-radius: 1em;
+    cursor: pointer;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.5s ease;
+}
+
+
+/* Animation when the button is pressed */
+.reset-button:active {
+    transform: scale(0.9); /* Shrink the button */
+    background-color: #f0f0f0; /* Slightly change background color */
+}
+.reset-button.lost {
+    transform: scale(0.9);
+    transform: rotate(180deg); /* Rotate 180 degrees */
+}
+.cell {
+    box-sizing: border-box;
+    width: 2.5vmin;
+    height: 2.5vmin;
+    border-top: 0.4vmin solid #e5e5e5;
+    border-left: 0.4vmin solid #fff;
+    border-bottom: 0.3vmin solid #7f7f7f;
+    border-right: 0.3vmin solid #7f7f7f;
+    background-color: #ccc;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2vmin;
+    font-weight: 1000;
+}
+
+.cell--revealed {
+    border: 0.1vmin solid #777
+}
+.cell--mine {
+    background:rgb(209, 0, 0);
+}
+
+.cell--revealed[data-value="1"] {
+    color: #0000ff; /* Blue */
+}
+
+.cell--revealed[data-value="2"] {
+    color: #027b00; /* Green */
+}
+
+.cell--revealed[data-value="3"] {
+    color: #ff0000; /* Red */
+}
+
+.cell--revealed[data-value="4"] {
+    color: #00007b; /* Dark Blue */
+}
+
+.cell--revealed[data-value="5"] {
+    color: #7b0000; /* Dark Red */
+}
+
+.cell--revealed[data-value="6"] {
+    color: #007b7b; /* Teal */
+}
+
+.cell--revealed[data-value="7"] {
+    color: #000000; /* Black */
+}
+
+.cell--revealed[data-value="8"] {
+    color: #7b7b7b; /* Gray */
+}
+
+.rules-container{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    max-height: 100vh;
+}
+.rules-container h1{
+    text-align: center;
+}
+
+h2::after{
+    content: ":";
+}
